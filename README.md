@@ -1,5 +1,8 @@
 # recipe_box レシピボックス
 
+## 参照ページ
+https://github.com/TimingJL/recipe_box
+
 ■requireメソッドとpermitメソッド
 https://qiita.com/morikuma709/items/2dc20d922409ae7ce216
 
@@ -28,3 +31,20 @@ def new
 end
 ```
 
+■BootStrap で Flash Message
+http://ariarichan.hateblo.jp/entry/2016/06/17/145816
+
+■Paper Clip
+https://qiita.com/chamao/items/181451a0f6d875a3c407
+https://qiita.com/k19911848/items/57b52c65027796ac1440
+
+■Cocoon
+https://github.com/nathanvda/cocoon
+https://qiita.com/Matsushin/items/4829e12da2834d6e386e
+
+■Missing partial recipes/_direction_fields のエラー
+```
+Missing partial recipes/_direction_fields, application/_direction_fields with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder, :haml]}. Searched in:
+```
+
+`app/views/recipes/`の下に`_direction_fields.html.haml`を作成。
