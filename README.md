@@ -1,4 +1,4 @@
-# recipe_box
+# recipe_box レシピボックス
 
 ■requireメソッドとpermitメソッド
 https://qiita.com/morikuma709/items/2dc20d922409ae7ce216
