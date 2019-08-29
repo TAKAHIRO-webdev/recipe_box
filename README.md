@@ -48,3 +48,45 @@ Missing partial recipes/_direction_fields, application/_direction_fields with {:
 ```
 
 `app/views/recipes/`の下に`_direction_fields.html.haml`を作成。
+
+
+■`Directions`が`・= direction.step`と表示される
+```
+%li = direction.step
+↓
+%li= direction.step
+```
+
+
+```
+undefined method `current_sign_in_at' for #<User:0x007f2154b54790>
+```
+
+■undefined method `current_sign_in_at'のエラー
+https://qiita.com/dossy/items/1a2f34774a6139f44e18
+https://stackoverflow.com/questions/55735895/nomethoderror-undefined-method-current-sign-in-at-for-user0x000055ce01dcf0a
+
+### １．Trackableを有効にする
+```
+ ## Trackable
+  #    t.integer  :sign_in_count, default: 0, null: false
+  #    t.datetime :current_sign_in_at
+  #    t.datetime :last_sign_in_at
+  #    t.string   :current_sign_in_ip
+  #    t.string   :last_sign_in_ip
+
+↓
+
+ ## Trackable
+      t.integer  :sign_in_count, default: 0, null: false
+      t.datetime :current_sign_in_at
+      t.datetime :last_sign_in_at
+      t.string   :current_sign_in_ip
+      t.string   :last_sign_in_ip
+```
+
+### 2．Migrateを戻す
+`rake db:migrate:down VERSION=<Trackable無効でmigrateした時のファイル名>`
+
+###3．再度Migrateする
+rake db:migrate up VERSION=<Trackable無効でmigrateした時のファイル名>
