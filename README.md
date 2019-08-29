@@ -89,4 +89,4 @@ https://stackoverflow.com/questions/55735895/nomethoderror-undefined-method-curr
 `rake db:migrate:down VERSION=<Trackable無効でmigrateした時のファイル名>`
 
 ###3．再度Migrateする
-rake db:migrate up VERSION=<Trackable無効でmigrateした時のファイル名>
+`rake db:migrate up VERSION=<Trackable無効でmigrateした時のファイル名>`
