@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   before_action :find_recipe, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: [:index, :show]
 
 # 一覧を表示
   def index
@@ -13,12 +13,12 @@ class RecipesController < ApplicationController
 
 # 新規登録
   def new
-      @recipe = Recipe.new
+    @recipe = current_user.recipes.build
   end
 
 # 
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = current_user.recipes.build(recipe_params)
 
     if @recipe.save
       redirect_to @recipe, notice: "Successfully created new recipe"
@@ -50,7 +50,7 @@ class RecipesController < ApplicationController
 
 # recipeのtitleとdescriptionを許可する
   def recipe_params
-    params.require(:recipe).permit(:title, :description)
+    params.require(:recipe).permit(:title, :description, :image, ingredients_attributes: [:id, :name, :_destroy], directions_attributes: [:id, :step, :_destroy])
   end
 
 # レシピテーブルの該当のidのデータを取得する
