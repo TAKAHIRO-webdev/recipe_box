@@ -90,3 +90,6 @@ https://stackoverflow.com/questions/55735895/nomethoderror-undefined-method-curr
 
 ### 3．再度Migrateする
 `rake db:migrate up VERSION=<Trackable無効でmigrateした時のファイル名>`
+
+■Rails: db:reset よりも db:migrate:reset の違い
+https://qiita.com/YumaInaura/items/3cf93c61c54b8775187a
